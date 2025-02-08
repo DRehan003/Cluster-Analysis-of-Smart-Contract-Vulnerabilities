@@ -41,8 +41,19 @@ The remaining columns are 32 potential risk tags that may be present in any give
 <br>
 <br>
 Download the dataset and save it into a pandas dataframe. Print the first five rive using the .head() function and ensure it matches the following:
-![First 5 rows of the dataset](Checkpoint_Images/Dataset_first_5_rows.png)
-![Alt Text](Checkpoint_Images/Dataset_first_5_rows.png)
+<br>
 
+![image alt](https://github.com/DRehan003/Cluster-Analysis-of-Smart-Contract-Vulnerabilities/blob/78dc0a333c94601251ce69c18702f9acc3cc1e25/Checkpoint_Images/Dataset_first_5_rows.png)
+<br>
+<h2> Step 2: Perform Feauture Selection </h2>
+Feature selection is the process of selecting the most important variables from your dataset that contribute the most to the predictive power of your model. This helps improve the model’s performance, reduce complexity, and speed up training. <br>
+<br>
 
-  
+I chose 3 risks tags:
+- hidden_owner: Indicates the true owner of the smart contract. Making the owner public ensures transparency between the owner and customer/client. <br>
+- Is_honeypot: Type of deceptive contract designed to lure users into sending funds or interacting with it, only to discover that they cannot withdraw or access their funds later. <br>
+- exploitation: Where vulnerabilities or flaws in a smart contract are taken advantage of by malicious actors to perform actions that were not intended by the contract's creators These include unauthorized access, stealing funds, altering contract behavior, or manipulating data.  <br>
+
+<br>
+
+I chose 3 three since they encompass broad, yet important, domains of security in smart contracts.
