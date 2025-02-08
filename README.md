@@ -110,7 +110,9 @@ The outcome of this dendogram is as shown below:
 
 What does the dendrogram show us? <br>
 <br>
-A Dendogram is a tree-like diagram that shows the hierarchical relationships between data points. It visually represents how clusters are merged or split based on similarity or distance. The vertical axis typically shows the level of similarity (or distance) between clusters, while the horizontal axis represents the individual data points or clusters. The branches merge as the clusters become more similar, with shorter branches indicating higher similarity. By analyzing the dendrogram, you can determine the optimal number of clusters and see which items are closely related based on their features. 
+A Dendogram is a tree-like diagram that shows the hierarchical relationships between data points. It visually represents how clusters are merged or split based on similarity or distance. The vertical axis typically shows the level of similarity (or distance) between clusters, while the horizontal axis represents the individual data points or clusters. The branches merge as the clusters become more similar, with shorter branches indicating higher similarity. By analyzing the dendrogram, you can determine the optimal number of clusters and see which items are closely related based on their features. <br>
+<br>
+We can learn a lot from the denogram, but lets use a different form of visualization that maybe more helpful.
 
 <h2> Step 6: Plot A Heat Map </h2>
 
@@ -128,4 +130,16 @@ The heatmap for the original features selection will look like this:
 The heatmap for the second features selection I perfomed will look like this:
 ![image alt](https://github.com/DRehan003/Cluster-Analysis-of-Smart-Contract-Vulnerabilities/blob/1bfbce09ed83cc3a0e28dc27a0eb55e020433d90/Checkpoint_Images/Heatmap_2.png)
 
-The more warm (red) a sect in the heatmap is, the more of that particular risk tag is present. For example, in the second heatmap we can see that in cluster 6, 57% of the contracts have the centralized_risk_medium tag. Whereas in clusters 1-4, we can see the centralized_risk_medium tag is not present in any of them.
+The more warm (red) a sect in the heatmap is, the more of that particular risk tag is present. For example, in the second heatmap we can see that in cluster 6, 57% of the contracts have the centralized_risk_medium tag. Whereas in clusters 1-4, we can see the centralized_risk_medium tag is not present in any of them. <br>
+<br>
+What does the heatmap show us? <br>
+- The risk level of each cluster grows from 1 through 7; 1 being the least risky. <br>
+
+What are some more detailed insights we can take away? <br>
+- Contracts in cluster 1 possess negligible or no vulnerabilities <br>
+- The can_take_back_ownership tag is particularly strong in cluster 7 <br>
+- exploitation is particularly strong clusters 2 and 6, therefore must focus on minimizing their vulnerabilities from potential loss of funds <br>
+- Contracts in clusters 4 and 5 must focus most on decreasing their  dependence on external systems and/or contracts <br>
+- Contracts in clusters 6 and 7 need to be deepy reevaluated from top to bottom as they contain risks in all 7 selected features  <br>
+- Contracts in cluster 6 are the most vulnerable for potential loss of funds out of all 7 clusters <br>
+
