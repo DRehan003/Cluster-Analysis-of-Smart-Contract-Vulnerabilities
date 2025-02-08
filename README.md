@@ -46,9 +46,10 @@ The remaining columns are 32 potential risk tags that may be present in any give
 Download the dataset and save it into a pandas dataframe. Print the first five rive using the __.head()__ function and ensure it matches the following:
 <br>
 
-![image alt](https://github.com/DRehan003/Cluster-Analysis-of-Smart-Contract-Vulnerabilities/blob/78dc0a333c94601251ce69c18702f9acc3cc1e25/Checkpoint_Images/Dataset_first_5_rows.png)
+![image alt](https://github.com/DRehan003/Cluster-Analysis-of-Smart-Contract-Vulnerabilities/blob/6c9775f9ae67709e87abf8a6b579e49ebbac9508/Checkpoint_Images/Dataset_first_5_rows.png)
 <br>
-<h2> Step 2: Perform Feauture Selection </h2>
+<h2> Step 2: Perform Feature Selection </h2>
+
 Feature selection is the process of selecting the most important variables from your dataset that contribute the most to the predictive power of your model. This helps improve the model’s performance, reduce complexity, and speed up training. <br>
 <br>
 
@@ -66,4 +67,49 @@ Use the following line of code to convert all the True and False values into bin
 &nbsp;&nbsp;&nbsp;&nbsp; __selected_features = data_new[[feature_1,feature_2,feature_3]].replace({True:1, False:0})__
 
 <h2> Step 3: Compute the Jaccard Distance </h2>
+
+The Jaccard Distance is a metric used to compare the similarity and diversity of two sets. In cluster analysis, Jaccard distance is a useful measure when you are working with data that can be represented as sets or binary attributes. It helps in determining the dissimilarity between data points.<br>
+<br>
+Use the following code to compute the jaccard distance: <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; __from scipy.spatial.distance import pdist, squareform__ <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; __distance_matrix = pdist(selected_features, 'jaccard')__ <br>
+&nbsp;&nbsp;&nbsp;&nbsp; __distance_square_matrix = squareform(distance_matrix)__ <br>
+<br>
+<h2> Step 4: Perform Clustering </h2>
+
+Cluster analysis is a way to group things that are similar to each other. It is a form of unsupervised machine learning. Imagine you have a collection of items, and you want to sort them into groups based on their characteristics. Cluster analysis helps you automatically find these groups, or clusters, without needing to tell the computer exactly what the groups are in advance. <br>
+<br>
+Use the following code to perform clustering: <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; __import scipy.cluster.hierarchy as sch__ <br>
+&nbsp;&nbsp;&nbsp;&nbsp; __linkage_matrix = sch.linkage(distance_matrix, method='ward')__ <br>
+<br>
+<h2> Step 5: Plot A Dendogram </h2>
+
+Now it is time to visualize our analysis. Use the following code to plot the dendogram: <br>
+
+&nbsp;&nbsp;&nbsp;&nbsp; __plt.figure(figsize=(10, 7))__ <br> 
+&nbsp;&nbsp;&nbsp;&nbsp; __dendrogram = sch.dendrogram(linkage_matrix)__ <br>
+&nbsp;&nbsp;&nbsp;&nbsp; __plt.title('Hierarchical Clustering Dendrogram')__ <br>
+&nbsp;&nbsp;&nbsp;&nbsp; __plt.xlabel('Data points')__ <br>
+&nbsp;&nbsp;&nbsp;&nbsp; __plt.ylabel('Jaccard distance')__ <br>
+&nbsp;&nbsp;&nbsp;&nbsp; __plt.show()__ <br>
+
+If you selected the same features as me in your feature selection, your dendogram should look like this:
+![image alt](https://github.com/DRehan003/Cluster-Analysis-of-Smart-Contract-Vulnerabilities/blob/6c9775f9ae67709e87abf8a6b579e49ebbac9508/Checkpoint_Images/Dendogram.png)
+
+<br>
+However, if you selected different features or less/more than 3 features, your dendogram can look very different. <br>
+<br>
+For example, as an experiment I went back and changed the feature selection on my analysis. Not only did I select completely different features, but I went from 3 features to 7. The outcome of this dendogram is as shown below:
+<br>
+
+![image alt](https://github.com/DRehan003/Cluster-Analysis-of-Smart-Contract-Vulnerabilities/blob/5e9715851b459237de29de864b9c06d9d5f9a2b2/Checkpoint_Images/Dendogram_2.png)
+
+What does the dendrogram show us? <br>
+<br>
+A Dendogram is a tree-like diagram that shows the hierarchical relationships between data points. It visually represents how clusters are merged or split based on similarity or distance. The vertical axis typically shows the level of similarity (or distance) between clusters, while the horizontal axis represents the individual data points or clusters. The branches merge as the clusters become more similar, with shorter branches indicating higher similarity. By analyzing the dendrogram, you can determine the optimal number of clusters and see which items are closely related based on their features. 
+
 
