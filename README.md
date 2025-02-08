@@ -52,7 +52,6 @@ Download the dataset and save it into a pandas dataframe. Print the first five r
 
 Feature selection is the process of selecting the most important variables from your dataset that contribute the most to the predictive power of your model. This helps improve the model’s performance, reduce complexity, and speed up training. <br>
 <br>
-
 I chose 3 risks tags:
 - __hidden_owner__: Indicates the true owner of the smart contract. Making the owner public ensures transparency between the owner and customer/client. <br>
 - __Is_honeypot__: Type of deceptive contract designed to lure users into sending funds or interacting with it, only to discover that they cannot withdraw or access their funds later. <br>
@@ -103,7 +102,18 @@ If you selected the same features as me in your feature selection, your dendogra
 <br>
 However, if you selected different features or less/more than 3 features, your dendogram can look very different. <br>
 <br>
-For example, as an experiment I went back and changed the feature selection on my analysis. Not only did I select completely different features, but I went from 3 features to 7. The outcome of this dendogram is as shown below:
+For example, as an experiment I went back and changed the feature selection on my analysis. Not only did I select completely different features, but I went from 3 features to 7. <br>
+<br>
+The features I selected were: <br>
+&nbsp;&nbsp;&nbsp;&nbsp; - exploitation <br>
+&nbsp;&nbsp;&nbsp;&nbsp; - bad_contract <br>
+&nbsp;&nbsp;&nbsp;&nbsp; - external_dependencies <br>
+&nbsp;&nbsp;&nbsp;&nbsp; - centralized_risk_medium <br>
+&nbsp;&nbsp;&nbsp;&nbsp; - encode_packed_parameters <br>
+&nbsp;&nbsp;&nbsp;&nbsp; - can_take_back_ownership <br>
+&nbsp;&nbsp;&nbsp;&nbsp; - owner_change_balance <br>
+<br>
+The outcome of this dendogram is as shown below:
 <br>
 
 ![image alt](https://github.com/DRehan003/Cluster-Analysis-of-Smart-Contract-Vulnerabilities/blob/5e9715851b459237de29de864b9c06d9d5f9a2b2/Checkpoint_Images/Dendogram_2.png)
@@ -112,4 +122,18 @@ What does the dendrogram show us? <br>
 <br>
 A Dendogram is a tree-like diagram that shows the hierarchical relationships between data points. It visually represents how clusters are merged or split based on similarity or distance. The vertical axis typically shows the level of similarity (or distance) between clusters, while the horizontal axis represents the individual data points or clusters. The branches merge as the clusters become more similar, with shorter branches indicating higher similarity. By analyzing the dendrogram, you can determine the optimal number of clusters and see which items are closely related based on their features. 
 
+<h2> Step 6: Plot A Heat Map </h2>
 
+Additionally, you can create a heat map as an alternative way to visualize the analysis. Use the following code to plot the heatmap:
+
+&nbsp;&nbsp;&nbsp;&nbsp; __cluster_centers = data_new[[feature_1, feature_2, feature_3,'cluster']].groupby('cluster').mean()__ <br>
+&nbsp;&nbsp;&nbsp;&nbsp; __plt.figure(figsize=(12, 8))__ <br>
+&nbsp;&nbsp;&nbsp;&nbsp; __sns.heatmap(cluster_centers, annot=True, cmap='coolwarm')__ <br>
+&nbsp;&nbsp;&nbsp;&nbsp; __plt.title('Heatmap of Cluster Centroids')__ <br>
+&nbsp;&nbsp;&nbsp;&nbsp; __plt.show()__ <br>
+
+The heatmap for the original features selection will look like this:
+![image alt](https://github.com/DRehan003/Cluster-Analysis-of-Smart-Contract-Vulnerabilities/blob/1bfbce09ed83cc3a0e28dc27a0eb55e020433d90/Checkpoint_Images/Heatmap.png)
+
+The heatmap for the second features selection I perfomed will look like this:
+![image alt](https://github.com/DRehan003/Cluster-Analysis-of-Smart-Contract-Vulnerabilities/blob/1bfbce09ed83cc3a0e28dc27a0eb55e020433d90/Checkpoint_Images/Heatmap_2.png)
