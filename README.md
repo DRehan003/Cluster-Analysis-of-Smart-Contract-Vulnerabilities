@@ -31,17 +31,7 @@ __The libraries__: <br>
   &nbsp;&nbsp;&nbsp;&nbsp; - Scipy <br>
   <br>
 
-The dataset you will be using is a "__compiled_risk_dataset__". What exactly is in this dataset? This dataset contains 1094 entries of smart contract vulnerabilties. The first 5 columns contain essential information about the smart contract: 
- <br>
- <br>
-  &nbsp;&nbsp;&nbsp;&nbsp; - The project name	<br>
-  &nbsp;&nbsp;&nbsp;&nbsp; - The smart contract address <br>
-  &nbsp;&nbsp;&nbsp;&nbsp; - The blog post link	<br>
-  &nbsp;&nbsp;&nbsp;&nbsp; - The audit website	<br>
-  &nbsp;&nbsp;&nbsp;&nbsp; - The chain <br>
- <br>
-The remaining columns are 32 potential risk tags that may be present in any given smart contract. The dataset is essentially a table that lists what specific risks are present in each contract.
-<br>
+The dataset you will be using is a "__compiled_risk_dataset__". What exactly is in this dataset? This dataset contains 1094 entries of smart contract vulnerabilties. The first 3 columns contain essential information about the smart contract: the project name, the smart contract address, and the chain. The remaining columns are 32 potential risk tags that may be present in any given smart contract. The dataset is essentially a table that lists what specific risks are present in each contract.<br>
 <br>
 Download the dataset and save it into a pandas dataframe. Print the first five rive using the __.head()__ function and ensure it matches the following:
 <br>
@@ -137,3 +127,5 @@ The heatmap for the original features selection will look like this:
 
 The heatmap for the second features selection I perfomed will look like this:
 ![image alt](https://github.com/DRehan003/Cluster-Analysis-of-Smart-Contract-Vulnerabilities/blob/1bfbce09ed83cc3a0e28dc27a0eb55e020433d90/Checkpoint_Images/Heatmap_2.png)
+
+The more warm (red) a sect in the heatmap is, the more of that particular risk tag is present. For example, in the second heatmap we can see that in cluster 6, 57% of the contracts have the centralized_risk_medium tag. Whereas in clusters 1-4, we can see the centralized_risk_medium tag is not present in any of them.
