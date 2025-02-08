@@ -41,6 +41,8 @@ The remaining columns are 32 potential risk tags that may be present in any give
 <br>
 <br>
 Download the dataset and save it into a pandas dataframe. Print the first five rive using the .head() function and ensure it matches the following:
-![First 5 rows of the dataset](/Users/danyalr/Desktop/5_rows)
+![First 5 rows of the dataset](Checkpoint_Images/Dataset_first_5_rows.png)
+![Alt Text](Checkpoint_Images/Dataset_first_5_rows.png)
+
 
   
