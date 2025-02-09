@@ -36,7 +36,7 @@ The dataset you will be using is a "__compiled_risk_dataset__". What exactly is 
 Download the dataset and save it into a pandas dataframe. Print the first five rive using the __.head()__ function and ensure it matches the following:
 <br>
 
-![image alt](https://github.com/DRehan003/Cluster-Analysis-of-Smart-Contract-Vulnerabilities/blob/6c9775f9ae67709e87abf8a6b579e49ebbac9508/Checkpoint_Images/Dataset_first_5_rows.png)
+![image alt](https://github.com/DRehan003/Cluster_Analysis_of_Smart_Contract_Risks/blob/c30e9d17d21335726bc82239cfc9690e521009fe/Checkpoint_Images/Dataset_first_5_rows.png)
 <br>
 <h2> Step 2: Perform Feature Selection </h2>
 
